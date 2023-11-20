@@ -34,6 +34,12 @@ class ComputerScene extends Scene {
 
 		this.removeEventListeners.push(
 			addEventListeners(gaveupButton, "click", () => {
+				if (window.cntSurrender) {
+					window.cntSurrender += 1;
+				} 
+				else {
+					window.cntSurrender = 1;
+				}
 				this.app.start("preparation");
 			})
 		);
@@ -49,7 +55,23 @@ class ComputerScene extends Scene {
 		for (const removeEventListener of this.removeEventListeners) {
 			removeEventListener();
 		}
-
+		const {opponent, player } = this.app;
+		if (opponent.loser) {
+			if (window.cntWins) {
+				window.cntWins += 1;
+			} 
+			else {
+				window.cntWins = 1;
+			}
+		}
+		if (player.loser) {
+			if (window.cntLose) {
+				window.cntLose += 1;
+			} 
+			else {
+				window.cntLose = 1;
+			}
+		}
 		this.removeEventListeners = [];
 	}
 
@@ -65,7 +87,7 @@ class ComputerScene extends Scene {
 			if (opponent.loser) {
 				this.status.textContent = "Вы выиграли!";
 			} else {
-				this.status.textContent = "Вы проиграли ((";
+				this.status.textContent = "Вы проиграли";
 			}
 
 			document.querySelector('[data-action="gaveup"]').classList.add("hidden");

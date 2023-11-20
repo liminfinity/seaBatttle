@@ -23,6 +23,7 @@
 .battlefield-status {
 	text-align: center;
 	padding: 20px;
+	@include textDefault;
 }
 .hidden {
 	display: none;
