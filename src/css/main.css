@@ -1,0 +1,446 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+.btn.app-main__btn {
+  padding: calc((1vh + 1vw) / 2) calc(1vh + 1vw);
+  border-radius: 1.5rem;
+  background: #9EAEFF;
+  color: #FFFFFF;
+}
+.btn.app-main__btn:hover {
+  background: #7C90F5;
+}
+.btn.app-main__btn:active {
+  transform: translateY(2px);
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-areas: "start" "fields" "arrange";
+  justify-items: center;
+  gap: calc((1vh + 1vw) * 1.3);
+}
+@media (max-width: 800px) {
+  .main {
+    grid-template-areas: "start arrange" "fields fields";
+  }
+}
+
+.start-game {
+  grid-area: start;
+  justify-self: center;
+}
+
+.btn.app-main__btn.start {
+  padding: calc((1vh + 1vw) / 2) calc((1vh + 1vw) * 2.5);
+}
+
+.battlefields {
+  grid-area: fields;
+  justify-self: normal;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: calc((1vh + 1vw) * 2);
+}
+
+.arrange-ships {
+  grid-area: arrange;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: calc(1vh + 1vw);
+}
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-areas: "title nav";
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0rem 0rem 1.5rem 1.5rem;
+  padding: calc((1vh + 1vw) * 1.5) calc((1vh + 1vw) * 3) calc((1vh + 1vw) * 1.5) 0rem;
+  background: #9EAEFF;
+}
+
+.app-title {
+  grid-area: title;
+  padding: calc((1vh + 1vw) / 2) calc((1vh + 1vw) * 2);
+  border-radius: 0rem 2.125rem 2.125rem 0rem;
+  background: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #000000;
+}
+@media (max-width: 500px) {
+  .app-title {
+    white-space: nowrap;
+  }
+}
+
+.app-nav {
+  grid-area: nav;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc((1vh + 1vw) / 3);
+}
+
+.app-nav__btn {
+  position: relative;
+  padding: calc(1vh + 1vw) calc((1vh + 1vw) * 2.5);
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 20% 50%, 0% 0%);
+  transform: translate(-20%);
+  background: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #000000;
+  font-size: clamp(1rem, 1vh + 1vw, 1.2rem);
+}
+.app-nav__btn:hover::before {
+  transform: scaleX(1);
+}
+.app-nav__btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #C1CBFF;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 20% 50%, 0% 0%);
+  transform-origin: 0 0;
+  transition: 0.5s;
+  transform: scaleX(0);
+}
+@media (max-width: 1000px) {
+  .app-nav__btn::before {
+    padding-left: calc((1vh + 1vw) * 4);
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 18% 50%, 0% 0%);
+  }
+}
+@media (max-width: 1000px) {
+  .app-nav__btn {
+    padding-left: calc((1vh + 1vw) * 4);
+    transform: translate(-18%);
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 18% 50%, 0% 0%);
+  }
+}
+.app-nav__btn:nth-child(1) {
+  transform: none;
+  padding-left: calc((1vh + 1vw) * 2);
+  border-radius: 1rem;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+.app-nav__btn:nth-child(1)::before {
+  border-radius: 1rem;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+@media (max-width: 500px) {
+  .app-nav__btn:nth-child(1)::before {
+    padding: calc((1vh + 1vw) * 2.6) calc((1vh + 1vw) * 2.5);
+    clip-path: polygon(0% 0%, 78% 0%, 100% 50%, 78% 100%, 0% 100%);
+  }
+}
+@media (max-width: 500px) {
+  .app-nav__btn:nth-child(1) {
+    padding: calc((1vh + 1vw) * 2.6) calc((1vh + 1vw) * 2.5);
+    clip-path: polygon(0% 0%, 78% 0%, 100% 50%, 78% 100%, 0% 100%);
+  }
+}
+
+.app-main__battlefield {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: calc((1vh + 1vw) * 2);
+  font-size: clamp(0.5rem, 1vh + 1vw, 1rem);
+}
+
+.battlefield {
+  display: flex;
+}
+
+.battlefield-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #000000;
+}
+
+.battlefield__field {
+  border: 1px solid #5B5B5B;
+  border-collapse: collapse;
+  border-radius: 0.25rem;
+}
+
+.cell {
+  position: relative;
+  width: clamp(2rem, (1vh + 1vw) * 2, 2.5rem);
+  height: clamp(2rem, (1vh + 1vw) * 2, 2.5rem);
+  border: 1px solid #5B5B5B;
+  text-align: center;
+  font-size: clamp(0.5rem, 1vh + 1vw, 1rem);
+}
+
+.field_marker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.marker-column {
+  top: calc((1vh + 1vw) * -3 / 4);
+}
+
+.marker-row {
+  left: calc((1vh + 1vw) * -3 / 4);
+}
+
+.settings-main {
+  display: flex;
+  flex-direction: column;
+  gap: calc((1vh + 1vw) * 1.5);
+}
+.settings-main .model__description {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: calc((1vh + 1vw) / 2);
+}
+
+.settings-color {
+  outline: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #000000;
+  border-radius: 0.5rem;
+  padding: calc((1vh + 1vw) / 3) calc((1vh + 1vw) / 2);
+}
+
+.statistic-main {
+  display: flex;
+  flex-direction: column;
+  gap: calc(1vh + 1vw);
+}
+
+.modal.ships {
+  left: 0;
+  top: 0;
+  transform-origin: top;
+  transform: scaleY(0);
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+.modal.ships .modal__title {
+  padding: calc((1vh + 1vw) / 2) calc((1vh + 1vw) * 10);
+}
+.modal.ships .modal__main {
+  padding: calc(1vh + 1vw) calc((1vh + 1vw) * 3);
+}
+.modal.ships.opened {
+  transform: scaleY(1);
+}
+
+.battlefield-dock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: calc((1vh + 1vw) / 2);
+}
+
+.battlefield-dock1 {
+  display: flex;
+  gap: calc((1vh + 1vw) / 2);
+}
+
+.battlefield-dock2 {
+  display: flex;
+  gap: calc((1vh + 1vw) / 2);
+}
+
+.battlefield-dock3 {
+  display: flex;
+  gap: calc((1vh + 1vw) / 2);
+}
+
+.battlefield-dock4 {
+  display: flex;
+  gap: calc((1vh + 1vw) / 2);
+}
+
+.ship {
+  position: relative;
+  border: 3px solid #7478EE;
+  background: #6CA7FF;
+  width: clamp(2rem, (1vh + 1vw) * 2, 2.5rem);
+  height: clamp(2rem, (1vh + 1vw) * 2, 2.5rem);
+  cursor: grab;
+}
+
+.ship-row-2 {
+  width: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 2);
+}
+
+.ship-row-3 {
+  width: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 3);
+}
+
+.ship-row-4 {
+  width: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 4);
+}
+
+.ship-column-2 {
+  height: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 2);
+}
+
+.ship-column-3 {
+  height: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 3);
+}
+
+.ship-column-4 {
+  height: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 4);
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1.5rem;
+  background: #9EAEFF;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.modal__title {
+  padding: calc((1vh + 1vw) / 2) calc((1vh + 1vw) * 6);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #000000;
+  color: #FFFFFF;
+  font-size: clamp(1.8rem, 1vh + 1vw, 2.5rem);
+}
+
+.modal__main {
+  padding: calc((1vh + 1vw) * 1.5) calc((1vh + 1vw) * 3);
+}
+
+.model__description {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #000000;
+  color: #FFFFFF;
+  font-size: clamp(1.3rem, 1vh + 1vw, 1.6rem);
+}
+
+.modal__line {
+  background: #FFFFFF;
+}
+
+.opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.app-actions {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app-action {
+  width: 210px;
+  padding: 10px;
+}
+
+.shot {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.shot-missed {
+  /* color: gray; */
+  color: "black";
+}
+
+.shot-wounded {
+  background: #fbdede;
+  z-index: 1;
+}
+
+.shot-wounded::after {
+  content: " ";
+  width: 41.6px;
+  height: 41.6px;
+  border-top: 2px solid red;
+  position: absolute;
+  z-index: -1;
+  transform: rotate(45deg);
+  top: 9px;
+  left: -20px;
+}
+
+.shot-wounded::before {
+  content: " ";
+  width: 41.6px;
+  height: 41.6px;
+  border-top: 2px solid red;
+  position: absolute;
+  z-index: -1;
+  transform: rotate(-45deg);
+  top: 9px;
+  left: 9px;
+}
+
+.shot-killed {
+  margin: -3px;
+  border: 3px solid red;
+}
+
+.hidden {
+  display: none;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  min-width: min-content;
+}
+
+.app {
+  position: relative;
+  display: grid;
+  grid-template-areas: "header" "main";
+  grid-auto-rows: max-content;
+  gap: calc((1vh + 1vw) * 1.5);
+  min-height: 100vh;
+  background: #C9DEFF;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #000000;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #000000;
+}
+
+/*# sourceMappingURL=main.css.map */

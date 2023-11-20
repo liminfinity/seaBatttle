@@ -1,0 +1,66 @@
+.modal.ships {
+    left: 0;
+    top: 0;
+    transform-origin: top;
+    transform: scaleY(0);
+    border-radius: 0 0 1.5rem 1.5rem;
+    & .modal__title {
+        padding: calc($index / 2) calc($index * 10);
+    }
+    & .modal__main {
+        padding: $index calc($index * 3);
+    }
+    &.opened {
+        transform: scaleY(1);
+    }
+}
+.battlefield-dock {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: calc($index / 2);
+}
+@for $i from 1 through 4 {
+    .battlefield-dock#{$i} {
+        display: flex;
+        gap: calc($index / 2);
+    }
+}
+.ship {
+    position: relative;
+	border: 3px solid $ship-borderColor;
+	background: $ship-backColor;
+	width: $size-ship;
+    height: $size-ship;
+    cursor: grab;
+}
+
+.ship-row-1 {
+}
+
+.ship-row-2 {
+	width: calc($size-ship * 2);
+}
+
+.ship-row-3 {
+	width: calc($size-ship * 3);
+}
+
+.ship-row-4 {
+	width: calc($size-ship * 4);
+}
+
+.ship-column-1 {
+}
+
+.ship-column-2 {
+	height: calc($size-ship * 2);
+}
+
+.ship-column-3 {
+	height: calc($size-ship * 3);
+}
+
+.ship-column-4 {
+	height: calc($size-ship * 4);
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sea Battle</title>
+		<link rel="stylesheet" href='../css/main.css'/>
+		<link rel="stylesheet" href="../style.css">
+	</head>
+	<body>
+		<div class="app">
+			<header class="app-header header">
+				<h1 class="app-title title">Морской бой</h1>
+				<nav class="app-nav nav">
+					<button type="button" class="btn app-nav__btn show-stat">Статистика</button>
+					<button type="button" class="btn app-nav__btn settings">Настройки игры</button>
+				</nav>
+			</header>
+			<main class="app-main main">
+				<section class="app-main__section start-game">
+					<button type="button" class="btn app-main__btn start" data-computer="simple" disabled>Начать игру</button>
+				</section>
+				<section class="app-main__section field-player" data-side="player"></section>
+				<section class="app-main__section app-menu">
+					<div class="app-actions" data-scene="preparation">
+						<button class="app-action" data-computer="middle" disabled>
+							Играть против среднего
+						</button>
+						<button class="app-action" data-computer="hard" disabled>
+							Играть против сильного
+						</button>
+					</div>
+					<div class="app-main__section app-actions hidden" data-scene="computer">
+						<div class="battlefield-status">Ваш ход</div>
+						<button class="btn app-main__btn btn-surrender" data-action="gaveup">Сдаться</button>
+						<button class="btn app-main__btn btn-again" data-action="again">
+							Играть еще раз
+						</button>
+					</div>
+				</section>
+				<section data-side="opponent"></section>
+				<section class="app-main__section arrange-ships">
+					<button type="button" class="btn app-main__btn manually-arrange" data-action="manually">Расставить вручную</button>
+					<button type="button" class="btn app-main__btn random-arrange" data-action="randomize">Расставить автоматически</button>
+				</section>
+				<section class="app-main__section modal statistic">
+                <h2 class="modal__title">Статистика</h2>
+                <hr class="modal__line">
+                <div class="modal__main statistic-main">
+                    <h3 class="model__description description-win">Победы: <span class="cnt-wins">2</span></h3>
+                    <h3 class="model__description description-lose">Поражения: <span class="cnt-lose">2</span></h3>
+                    <h3 class="model__description description-surrender">Сдался: <span class="cnt-surrender">2</span></h3>
+                </div>
+            </section>
+            <section class="app-main__section modal settings">
+                <h2 class="modal__title">Настройки игры</h2>
+                <hr class="modal__line">
+                <div class="modal__main settings-main">
+                    <div class="model__description">
+                        <label for='color-ships' class="description-color-ships">Цвет кораблей: </label>
+                        <input id='color-ships' data-jscolor="{
+                            previewPosition: 'right',
+                            required: false,
+                            palette: [
+                                '#000000', '#7d7d7d', '#870014', '#ec1c23', '#ff7e26',
+                                '#fef100', '#22b14b', '#00a1e7', '#3f47cc', '#a349a4',
+                                '#ffffff', '#c3c3c3', '#b87957', '#feaec9', '#ffc80d',
+                                '#eee3af', '#b5e61d', '#99d9ea', '#7092be', '#c8bfe7',
+                            ],
+                            random: true,
+                        }" class="jscolor settings-color">
+                    </div>
+                    <div class="model__description">
+                        <label for='color-hurts' class="description-color-hurts">Цвет ранений: </label>
+                        <input id='color-hurts' data-jscolor="{
+                            previewPosition: 'right',
+                            required: false,
+                            palette: [
+                                '#000000', '#7d7d7d', '#870014', '#ec1c23', '#ff7e26',
+                                '#fef100', '#22b14b', '#00a1e7', '#3f47cc', '#a349a4',
+                                '#ffffff', '#c3c3c3', '#b87957', '#feaec9', '#ffc80d',
+                                '#eee3af', '#b5e61d', '#99d9ea', '#7092be', '#c8bfe7',
+                            ],
+                            random: true,
+                        }" class="jscolor settings-color">
+                    </div>
+                    <div class="model__description">
+                        <label for='color-shot' class="description-color-shots">Цвет выстрелов: </label>
+                        <input id='color-shot' data-jscolor="{
+                            previewPosition: 'right',
+                            required: false,
+                            palette: [
+                                '#000000', '#7d7d7d', '#870014', '#ec1c23', '#ff7e26',
+                                '#fef100', '#22b14b', '#00a1e7', '#3f47cc', '#a349a4',
+                                '#ffffff', '#c3c3c3', '#b87957', '#feaec9', '#ffc80d',
+                                '#eee3af', '#b5e61d', '#99d9ea', '#7092be', '#c8bfe7',
+                            ],
+                            random: true,
+                        }" class="jscolor settings-color">
+                    </div>
+                </div>
+            </section>
+			</main>
+		</div>
+
+
+		<script src="../Logic/additional.js"></script>
+		<script src="../Logic/Mouse.js"></script>
+
+		<script src="../Logic/Application.js"></script>
+		<script src="../Logic/Scene.js"></script>
+
+		<script src="../Logic/scenes/PreparationScene.js"></script>
+		<script src="../Logic/scenes/ComputerScene.js"></script>
+
+		<script src="../Logic/Battlefield.js"></script>
+		<script src="../Logic/BattlefieldView.js"></script>
+
+		<script src="../Logic/Ship.js"></script>
+		<script src="../Logic/ShipView.js"></script>
+
+		<script src="../Logic/Shot.js"></script>
+		<script src="../Logic/ShotView.js"></script>
+
+		<script src="../Logic/script.js"></script>
+		<script src="../Logic/jscolor/jscolor.js"></script>
+		<script src="../Logic/openModal.js"></script>
+	</body>
+</html>

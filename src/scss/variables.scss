@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+$backColor-main: #C9DEFF;
+$backColor-second: #9EAEFF;
+$backColor-second--hover: #7C90F5;
+$hover-default: #C1CBFF; 
+$text-weight: 400;
+$text-color: #000000;
+$btn-text-color: #FFFFFF;
+$btn-border-radius: 1.5rem;
+$text-fontFamily: 'Poppins', sans-serif;
+
+$table-border-color: #5B5B5B;
+
+$index: calc(1vh + 1vw);
+
+$size-ship: clamp(2rem, calc($index * 2), 2.5rem);
+$ship-backColor: #6CA7FF;
+$ship-borderColor: #7478EE;
+
+@mixin textDefault {
+    font-family: $text-fontFamily;
+    font-weight: $text-weight;
+    color: $text-color;
+}
+@mixin rightHover {
+    transform-origin: 0 0;
+    transition: .5s;
+    transform: scaleX(0);
+}

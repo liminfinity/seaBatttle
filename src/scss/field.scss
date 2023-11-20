@@ -1,0 +1,45 @@
+.app-main__battlefield {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: calc($index * 2);
+    
+    font-size: clamp(.5rem, $index, 1rem);
+}
+.battlefield {
+    display: flex;
+}
+.battledield-dock {
+
+}
+.battlefield-title {
+    @include textDefault;
+}
+.battlefield__field {
+    border: 1px solid $table-border-color;
+    border-collapse: collapse;
+    border-radius: 0.25rem;
+}
+.cell {
+    position: relative;
+    width: $size-ship;
+    height: $size-ship;
+    border: 1px solid $table-border-color;
+    text-align: center;
+    font-size: clamp(.5rem, $index, 1rem);
+}
+.field_marker {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+}
+.marker-column {
+    top: calc($index * -3/4);
+}
+.marker-row {
+    left: calc($index * -3/4);
+}

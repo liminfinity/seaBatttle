@@ -1,0 +1,18 @@
+.settings-main {
+    display: flex;
+    flex-direction: column;
+    gap: calc($index * 1.5);
+    & .model__description {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: calc($index / 2);
+    }
+}
+.settings-color {
+    outline: none;
+    border: none;
+    @include textDefault;
+    border-radius: .5rem;
+    padding: calc($index / 3) calc($index / 2);
+}

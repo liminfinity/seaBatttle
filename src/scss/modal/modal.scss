@@ -1,0 +1,35 @@
+@import 'settings', 'statistic', 'ships';
+
+.modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1.5rem;
+    background: $backColor-second;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+.modal__title {
+    padding: calc($index / 2) calc($index * 6);
+    @include textDefault;
+    color: $btn-text-color;
+    font-size: clamp(1.8rem, $index, 2.5rem);
+    
+}
+.modal__main {
+    padding: calc($index * 1.5) calc($index * 3);
+}
+.model__description {
+    @include textDefault;
+    color: $btn-text-color;
+    font-size: clamp(1.3rem, $index, 1.6rem);
+}
+.modal__line {
+    background: $btn-text-color;
+}
+.opened {
+    opacity: 1;
+    visibility: visible;
+}
