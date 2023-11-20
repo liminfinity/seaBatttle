@@ -295,6 +295,7 @@
 
 .modal {
   position: absolute;
+  z-index: 1;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -438,6 +439,7 @@
   margin: 0;
   box-sizing: border-box;
   min-width: min-content;
+  user-select: none;
 }
 
 .app {

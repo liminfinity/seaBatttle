@@ -25,6 +25,9 @@ class ShotView extends Shot {
 			this.div.classList.add("shot-missed");
 			this.div.textContent = "•";
 		} else if (this.variant === "wounded") {
+			if (window.colorHurt) {
+				this.div.style.background = window.colorHurt;
+			}
 			this.div.classList.add("shot-wounded");
 		} else if (this.variant === "killed") {
 			this.div.classList.add("shot-wounded", "shot-killed");

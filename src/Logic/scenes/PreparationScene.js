@@ -144,6 +144,9 @@ class PreparationScene extends Scene {
 
 		for (let i = 0; i < 10; i++) {
 			const ship = player.ships[i];
+			if (window.colorShip) {
+				ship.div.style.background = window.colorShip;
+			}
 
 			ship.startX = shipDatas[i].startX;
 			ship.startY = shipDatas[i].startY;
@@ -157,6 +160,9 @@ class PreparationScene extends Scene {
 
 		for (const { size, direction, startX, startY } of shipDatas) {
 			const ship = new ShipView(size, direction, startX, startY);
+			if (window.colorShip) {
+				ship.div.style.background = window.colorShip;
+			}
 			player.addShip(ship);
 		}
 	}

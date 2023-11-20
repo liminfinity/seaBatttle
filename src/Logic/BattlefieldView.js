@@ -110,7 +110,9 @@ class BattlefieldView extends Battlefield {
 		if (!super.addShot(shot)) {
 			return false;
 		}
-
+		if (window.colorShot) {
+			shot.div.style.color = window.colorShot;
+		}
 		this.polygon.append(shot.div);
 
 		const cell = this.cells[shot.y][shot.x];
