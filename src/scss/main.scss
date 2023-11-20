@@ -16,15 +16,11 @@
 .main {
     grid-area: main;
     display: grid;
-    grid-template-areas: 'start'
-                        'fields'
-                        'arrange';
+    grid-template-areas: 'start start start'
+                        'field-player menu field-opponent'
+                        'arrange arrange arrange';
     justify-items: center;
     gap: calc($index * 1.3);
-    @media (max-width: 800px) {
-        grid-template-areas: 'start arrange'
-                             'fields fields';
-    }
 }
 .start-game {
     grid-area: start;
@@ -47,4 +43,13 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: $index;
+}
+.app-menu {
+    grid-area: app-menu;
+}
+.field-player {
+    grid-area: field-player;
+}
+.field-opponent {
+    grid-area: field-opponent;
 }

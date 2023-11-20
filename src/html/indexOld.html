@@ -17,28 +17,24 @@
 				</nav>
 			</header>
 			<main class="app-main main">
-				<section class="app-main__section start-game">
+				<section class="app-main__section start-game" data-scene="preparation">
 					<button type="button" class="btn app-main__btn start" data-computer="simple" disabled>Начать игру</button>
 				</section>
-				<section class="app-main__section field-player" data-side="player"></section>
+				<section class="app-main__section field field-player" data-side="player">
+					<h2 class="battlefield-title title-field">Ваше поле</h2>
+				</section>
 				<section class="app-main__section app-menu">
-					<div class="app-actions" data-scene="preparation">
-						<button class="app-action" data-computer="middle" disabled>
-							Играть против среднего
-						</button>
-						<button class="app-action" data-computer="hard" disabled>
-							Играть против сильного
-						</button>
-					</div>
 					<div class="app-main__section app-actions hidden" data-scene="computer">
 						<div class="battlefield-status">Ваш ход</div>
-						<button class="btn app-main__btn btn-surrender" data-action="gaveup">Сдаться</button>
-						<button class="btn app-main__btn btn-again" data-action="again">
+						<button type="button" class="btn app-main__btn btn-surrender" data-action="gaveup">Сдаться</button>
+						<button type="button" class="btn app-main__btn btn-again" data-action="again">
 							Играть еще раз
 						</button>
 					</div>
 				</section>
-				<section data-side="opponent"></section>
+				<section class="app-main__section field field-opponent" data-side="opponent">
+					<h2 class="battlefield-title title-field">Поле противника</h2>
+				</section>
 				<section class="app-main__section arrange-ships">
 					<button type="button" class="btn app-main__btn manually-arrange" data-action="manually">Расставить вручную</button>
 					<button type="button" class="btn app-main__btn random-arrange" data-action="randomize">Расставить автоматически</button>

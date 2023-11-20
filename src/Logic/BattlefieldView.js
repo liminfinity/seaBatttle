@@ -14,7 +14,7 @@ class BattlefieldView extends Battlefield {
 		root.classList.add("battlefield");
 
 		const table = document.createElement("table");
-		table.classList.add("battlefield-table");
+		table.classList.add("battlefield__field");
 
 		const dock = document.createElement("div");
 		dock.classList.add("battlefield-dock");
@@ -28,12 +28,12 @@ class BattlefieldView extends Battlefield {
 		for (let y = 0; y < 10; y++) {
 			const row = [];
 			const tr = document.createElement("tr");
-			tr.classList.add("battlefield-row");
+			tr.classList.add("field_rows", "row");
 			tr.dataset.y = y;
 
 			for (let x = 0; x < 10; x++) {
 				const td = document.createElement("td");
-				td.classList.add("battlefield-item");
+				td.classList.add("field_cells", "cell");
 				Object.assign(td.dataset, { x, y });
 
 				tr.append(td);
@@ -48,7 +48,7 @@ class BattlefieldView extends Battlefield {
 			const cell = this.cells[0][x];
 			const marker = document.createElement("div");
 
-			marker.classList.add("marker", "marker-column");
+			marker.classList.add("field_marker", "marker-column");
 			marker.textContent = "АБВГДЕЖЗИК"[x];
 
 			cell.append(marker);
@@ -58,7 +58,7 @@ class BattlefieldView extends Battlefield {
 			const cell = this.cells[y][0];
 			const marker = document.createElement("div");
 
-			marker.classList.add("marker", "marker-row");
+			marker.classList.add("field_marker", "marker-row");
 			marker.textContent = y + 1;
 
 			cell.append(marker);

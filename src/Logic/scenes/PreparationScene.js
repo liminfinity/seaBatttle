@@ -42,8 +42,6 @@ class PreparationScene extends Scene {
 		const manuallyButton = document.querySelector('[data-action="manually"]');
 		const randomizeButton = document.querySelector('[data-action="randomize"]');
 		const simpleButton = document.querySelector('[data-computer="simple"]');
-		const middleButton = document.querySelector('[data-computer="middle"]');
-		const hardButton = document.querySelector('[data-computer="hard"]');
 
 		this.removeEventListeners.push(
 			addEventListener(manuallyButton, "click", () => this.manually())
@@ -55,19 +53,10 @@ class PreparationScene extends Scene {
 
 		this.removeEventListeners.push(
 			addEventListener(simpleButton, "click", () =>
-				this.startComputer("simple")
+				this.startComputer()
 			)
 		);
 
-		this.removeEventListeners.push(
-			addEventListener(middleButton, "click", () =>
-				this.startComputer("middle")
-			)
-		);
-
-		this.removeEventListeners.push(
-			addEventListener(hardButton, "click", () => this.startComputer("hard"))
-		);
 	}
 
 	stop() {
@@ -143,12 +132,8 @@ class PreparationScene extends Scene {
 
 		if (player.complete) {
 			document.querySelector('[data-computer="simple"]').disabled = false;
-			document.querySelector('[data-computer="middle"]').disabled = false;
-			document.querySelector('[data-computer="hard"]').disabled = false;
 		} else {
 			document.querySelector('[data-computer="simple"]').disabled = true;
-			document.querySelector('[data-computer="middle"]').disabled = true;
-			document.querySelector('[data-computer="hard"]').disabled = true;
 		}
 	}
 
@@ -176,17 +161,10 @@ class PreparationScene extends Scene {
 		}
 	}
 
-	startComputer(level) {
+	startComputer() {
 		const matrix = this.app.player.matrix;
 		const withoutShipItems = matrix.flat().filter((item) => !item.ship);
 		let untouchables = [];
-
-		if (level === "simple") {
-		} else if (level === "middle") {
-			untouchables = getRandomSeveral(withoutShipItems, 20);
-		} else if (level === "hard") {
-			untouchables = getRandomSeveral(withoutShipItems, 40);
-		}
 
 		this.app.start("computer", untouchables);
 	}
