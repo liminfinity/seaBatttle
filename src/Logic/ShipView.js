@@ -1,4 +1,7 @@
-class ShipView extends Ship {
+import { Ship } from "./Ship.js";
+import { isUnderPoint } from "./additional.js";
+
+export class ShipView extends Ship {
 	div = null;
 
 	startX = null;

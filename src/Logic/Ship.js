@@ -1,4 +1,4 @@
-class Ship {
+export class Ship {
 	size = null;
 	direction = null;
 	killed = false;

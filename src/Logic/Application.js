@@ -1,4 +1,8 @@
-class Application {
+import { Mouse } from "./Mouse.js";
+import { BattlefieldView } from "./BattlefieldView.js";
+
+
+export class Application {
 	mouse = null;
 
 	player = null;

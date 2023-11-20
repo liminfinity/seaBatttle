@@ -1,4 +1,7 @@
-class BattlefieldView extends Battlefield {
+import { Battlefield } from "./Battlefield.js";
+import { isUnderPoint } from "./additional.js";
+
+export class BattlefieldView extends Battlefield {
 	root = null;
 	table = null;
 	dock = null;

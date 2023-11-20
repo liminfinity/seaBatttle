@@ -1,4 +1,4 @@
-class Mouse {
+export class Mouse {
 	element = null;
 
 	under = false;

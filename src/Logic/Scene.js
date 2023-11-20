@@ -1,4 +1,4 @@
-class Scene {
+export class Scene {
 	name = null;
 	app = null;
 

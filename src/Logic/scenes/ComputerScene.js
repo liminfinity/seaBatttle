@@ -1,4 +1,9 @@
-class ComputerScene extends Scene {
+import { Scene } from "../Scene.js";
+import { addEventListeners, getRandomBetween, isUnderPoint } from "../additional.js";
+import { ShipView } from "../ShipView.js";
+import { ShotView } from "../ShotView.js";
+
+export class ComputerScene extends Scene {
 	untouchables = [];
 	playerTurn = true;
 	status = null;

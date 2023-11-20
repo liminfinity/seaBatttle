@@ -1,4 +1,8 @@
-const shipDatas = [
+import { Scene } from "../Scene.js";
+import { addEventListeners, isUnderPoint } from "../additional.js";
+import { ShipView } from "../ShipView.js";
+
+export const shipDatas = [
 	{ size: 4, direction: "row", startX: 10, startY: 410 },
 	{ size: 3, direction: "row", startX: 10, startY: 455 },
 	{ size: 3, direction: "row", startX: 120, startY: 455 },
@@ -11,7 +15,7 @@ const shipDatas = [
 	{ size: 1, direction: "row", startX: 145, startY: 545 },
 ];
 
-class PreparationScene extends Scene {
+export class PreparationScene extends Scene {
 	draggedShip = null;
 	draggedOffsetX = 0;
 	draggedOffestY = 0;

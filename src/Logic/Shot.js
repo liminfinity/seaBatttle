@@ -1,4 +1,4 @@
-class Shot {
+export class Shot {
 	x = null;
 	y = null;
 	variant = null;

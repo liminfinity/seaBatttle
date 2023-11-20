@@ -1,4 +1,6 @@
-class ShotView extends Shot {
+import { Shot } from "./Shot.js";
+
+export class ShotView extends Shot {
 	div = null;
 
 	constructor(x, y, variant = "miss") {

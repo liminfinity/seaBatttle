@@ -1,4 +1,6 @@
-class Battlefield {
+import { getRandomBetween, getRandomFrom } from "./additional.js";
+
+export class Battlefield {
 	ships = [];
 	shots = [];
 
