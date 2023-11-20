@@ -33,13 +33,13 @@ class ComputerScene extends Scene {
 		againButton.classList.add("hidden");
 
 		this.removeEventListeners.push(
-			addEventListener(gaveupButton, "click", () => {
+			addEventListeners(gaveupButton, "click", () => {
 				this.app.start("preparation");
 			})
 		);
 
 		this.removeEventListeners.push(
-			addEventListener(againButton, "click", () => {
+			addEventListeners(againButton, "click", () => {
 				this.app.start("preparation");
 			})
 		);

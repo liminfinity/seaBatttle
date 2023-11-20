@@ -15,8 +15,10 @@
 .main {
   grid-area: main;
   display: grid;
-  grid-template-areas: "start start start" "field-player menu field-opponent" "arrange arrange arrange";
+  grid-template-areas: "start start start" "field-player menu field-opponent";
   justify-items: center;
+  justify-content: center;
+  align-items: center;
   gap: calc((1vh + 1vw) * 1.3);
 }
 
@@ -47,7 +49,12 @@
 }
 
 .app-menu {
-  grid-area: app-menu;
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: calc((1vh + 1vw) * 2);
 }
 
 .field-player {
@@ -56,6 +63,7 @@
 
 .field-opponent {
   grid-area: field-opponent;
+  align-self: flex-start;
 }
 
 .header {
@@ -170,10 +178,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: calc((1vh + 1vw) * 2);
 }
 
 .battlefield {
   display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .battlefield-title {
@@ -183,6 +194,7 @@
 }
 
 .battlefield__field {
+  position: relative;
   border: 1px solid #5B5B5B;
   border-collapse: collapse;
   border-radius: 0.25rem;
@@ -206,11 +218,11 @@
 }
 
 .marker-column {
-  top: calc((1vh + 1vw) / 2);
+  top: calc((1vh + 1vw) * -3 / 4);
 }
 
 .marker-row {
-  left: calc((1vh + 1vw) / 2);
+  left: calc((1vh + 1vw) * -3 / 4);
 }
 
 .settings-main {
@@ -241,52 +253,15 @@
   gap: calc(1vh + 1vw);
 }
 
-.modal.ships {
-  left: 0;
-  top: 0;
-  transform-origin: top;
-  transform: scaleY(0);
-  border-radius: 0 0 1.5rem 1.5rem;
-}
-.modal.ships .modal__title {
-  padding: calc((1vh + 1vw) / 2) calc((1vh + 1vw) * 10);
-}
-.modal.ships .modal__main {
-  padding: calc(1vh + 1vw) calc((1vh + 1vw) * 3);
-}
-.modal.ships.opened {
-  transform: scaleY(1);
-}
-
 .battlefield-dock {
-  position: relative;
   display: flex;
   flex-direction: column;
-  gap: calc((1vh + 1vw) / 2);
-}
-
-.battlefield-dock1 {
-  display: flex;
-  gap: calc((1vh + 1vw) / 2);
-}
-
-.battlefield-dock2 {
-  display: flex;
-  gap: calc((1vh + 1vw) / 2);
-}
-
-.battlefield-dock3 {
-  display: flex;
-  gap: calc((1vh + 1vw) / 2);
-}
-
-.battlefield-dock4 {
-  display: flex;
+  flex-wrap: wrap;
   gap: calc((1vh + 1vw) / 2);
 }
 
 .ship {
-  position: relative;
+  position: absolute;
   border: 3px solid #7478EE;
   background: #6CA7FF;
   width: clamp(2rem, (1vh + 1vw) * 2, 2.5rem);
@@ -373,8 +348,8 @@
 }
 
 .shot {
-  width: 32px;
-  height: 32px;
+  width: clamp(2rem, (1vh + 1vw) * 2, 2.5rem);
+  height: clamp(2rem, (1vh + 1vw) * 2, 2.5rem);
   text-align: center;
   display: flex;
   position: absolute;
@@ -394,31 +369,62 @@
 
 .shot-wounded::after {
   content: " ";
-  width: 41.6px;
-  height: 41.6px;
+  width: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 1.3);
+  height: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 1.3);
   border-top: 2px solid red;
   position: absolute;
   z-index: -1;
   transform: rotate(45deg);
-  top: 9px;
-  left: -20px;
+  top: 11px;
+  right: 11px;
 }
 
 .shot-wounded::before {
   content: " ";
-  width: 41.6px;
-  height: 41.6px;
+  width: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 1.3);
+  height: calc(clamp(2rem, (1vh + 1vw) * 2, 2.5rem) * 1.3);
   border-top: 2px solid red;
   position: absolute;
   z-index: -1;
   transform: rotate(-45deg);
-  top: 9px;
-  left: 9px;
+  top: 11px;
+  left: 11px;
 }
 
 .shot-killed {
-  margin: -3px;
   border: 3px solid red;
+}
+
+.hidden {
+  display: none;
+}
+
+.battlefield-item {
+  position: relative;
+  width: clamp(2rem, (1vh + 1vw) * 2, 2.5rem);
+  height: clamp(2rem, (1vh + 1vw) * 2, 2.5rem);
+  border: 1px solid rgba(6, 25, 247, 0.15);
+}
+
+.battlefield-item__active {
+  background: rgba(123, 121, 255, 0.2);
+}
+
+.app-actions {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app-action {
+  width: 210px;
+  padding: 10px;
+}
+
+.battlefield-status {
+  text-align: center;
+  padding: 20px;
 }
 
 .hidden {

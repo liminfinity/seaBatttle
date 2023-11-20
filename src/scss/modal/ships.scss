@@ -1,33 +1,11 @@
-.modal.ships {
-    left: 0;
-    top: 0;
-    transform-origin: top;
-    transform: scaleY(0);
-    border-radius: 0 0 1.5rem 1.5rem;
-    & .modal__title {
-        padding: calc($index / 2) calc($index * 10);
-    }
-    & .modal__main {
-        padding: $index calc($index * 3);
-    }
-    &.opened {
-        transform: scaleY(1);
-    }
-}
 .battlefield-dock {
-    position: relative;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     gap: calc($index / 2);
 }
-@for $i from 1 through 4 {
-    .battlefield-dock#{$i} {
-        display: flex;
-        gap: calc($index / 2);
-    }
-}
 .ship {
-    position: relative;
+    position: absolute;
 	border: 3px solid $ship-borderColor;
 	background: $ship-backColor;
 	width: $size-ship;

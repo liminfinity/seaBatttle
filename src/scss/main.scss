@@ -17,9 +17,10 @@
     grid-area: main;
     display: grid;
     grid-template-areas: 'start start start'
-                        'field-player menu field-opponent'
-                        'arrange arrange arrange';
+                        'field-player menu field-opponent';
     justify-items: center;
+    justify-content: center;
+    align-items: center;
     gap: calc($index * 1.3);
 }
 .start-game {
@@ -45,11 +46,18 @@
     gap: $index;
 }
 .app-menu {
-    grid-area: app-menu;
+    grid-area: menu;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: calc($index * 2);
 }
 .field-player {
     grid-area: field-player;
 }
 .field-opponent {
     grid-area: field-opponent;
+    align-self: flex-start;
 }

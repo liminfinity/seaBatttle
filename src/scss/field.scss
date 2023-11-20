@@ -12,17 +12,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: calc($index * 2);
 }
 .battlefield {
     display: flex;
-}
-.battledield-dock {
-
+    flex-direction: column;
+    position: relative;
 }
 .battlefield-title {
     @include textDefault;
 }
 .battlefield__field {
+    position: relative;
     border: 1px solid $table-border-color;
     border-collapse: collapse;
     border-radius: 0.25rem;
@@ -44,8 +45,8 @@
     
 }
 .marker-column {
-    top: calc($index / 2);
+    top: calc($index * -3/4);
 }
 .marker-row {
-    left: calc($index  / 2);
+    left: calc($index * -3/4);
 }

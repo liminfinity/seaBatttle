@@ -44,15 +44,15 @@ class PreparationScene extends Scene {
 		const simpleButton = document.querySelector('[data-computer="simple"]');
 
 		this.removeEventListeners.push(
-			addEventListener(manuallyButton, "click", () => this.manually())
+			addEventListeners(manuallyButton, "click", () => this.manually())
 		);
 
 		this.removeEventListeners.push(
-			addEventListener(randomizeButton, "click", () => this.randomize())
+			addEventListeners(randomizeButton, "click", () => this.randomize())
 		);
 
 		this.removeEventListeners.push(
-			addEventListener(simpleButton, "click", () =>
+			addEventListeners(simpleButton, "click", () =>
 				this.startComputer()
 			)
 		);

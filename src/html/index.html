@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Sea Battle</title>
 		<link rel="stylesheet" href='../css/main.css'/>
-		<link rel="stylesheet" href="../style.css">
+		
 	</head>
 	<body>
 		<div class="app">
@@ -24,6 +24,8 @@
 					<h2 class="battlefield-title title-field">Ваше поле</h2>
 				</section>
 				<section class="app-main__section app-menu">
+					<button type="button" class="btn app-main__btn manually-arrange" data-action="manually">Расставить вручную</button>
+					<button type="button" class="btn app-main__btn random-arrange" data-action="randomize">Расставить автоматически</button>
 					<div class="app-main__section app-actions hidden" data-scene="computer">
 						<div class="battlefield-status">Ваш ход</div>
 						<button type="button" class="btn app-main__btn btn-surrender" data-action="gaveup">Сдаться</button>
@@ -34,10 +36,6 @@
 				</section>
 				<section class="app-main__section field field-opponent" data-side="opponent">
 					<h2 class="battlefield-title title-field">Поле противника</h2>
-				</section>
-				<section class="app-main__section arrange-ships">
-					<button type="button" class="btn app-main__btn manually-arrange" data-action="manually">Расставить вручную</button>
-					<button type="button" class="btn app-main__btn random-arrange" data-action="randomize">Расставить автоматически</button>
 				</section>
 				<section class="app-main__section modal statistic">
                 <h2 class="modal__title">Статистика</h2>
@@ -96,8 +94,8 @@
                     </div>
                 </div>
             </section>
-			</main>
-		</div>
+		</main>
+	</div>
 
 
 		<script src="../Logic/additional.js"></script>
@@ -119,7 +117,7 @@
 		<script src="../Logic/ShotView.js"></script>
 
 		<script src="../Logic/script.js"></script>
-		<script src="../Logic/jscolor/jscolor.js"></script>
+		<script src="../jscolor/jscolor.js"></script>
 		<script src="../Logic/openModal.js"></script>
 	</body>
 </html>
